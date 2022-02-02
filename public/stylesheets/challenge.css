@@ -99,6 +99,10 @@ body {
         font-size: 1.2rem;
     }
 
+    .form {
+        display: inline-block !important;
+    }
+
     
 
     
@@ -108,9 +112,11 @@ body {
         height: 168px;
     }
 
-    #submit-button {
+    #submit-button  {
         display: block;
         margin-top: 10%;
+        height: 5.0rem;
+        font-size: 1.0rem;
     }
 }
 

@@ -3,11 +3,12 @@ var videoOn = document.querySelector(".video")
 let currentNumber = 0;
 
 
+
 function submit() {
         let user_answer = parseInt($('#question-number').val())
-        console.log(user_answer)
-        console.log(list[currentNumber].answer)
-        if (user_answer === list[currentNumber].answer) {
+        // console.log(user_answer)
+        console.log(P6Questions[currentNumber].answer)
+        if (user_answer === P6Questions[currentNumber].answer) {
             isCorrect();
         } else {
             isWrong();
@@ -21,7 +22,7 @@ function isCorrect() {
             scoreboard++;
           } 
         console.log(scoreboard) 
-    if (currentNumber < (list.length - 1)) {
+    if (currentNumber < (P6Questions.length - 1)) {
         currentNumber++;
         
         questionUpdate();
@@ -31,18 +32,18 @@ function isCorrect() {
         $(".bodyhead").css("display", "none")
         var text = document.createElement("p")
         text.style.margin = "20px";
-        text.innerHTML = `Congratulations, your score is ${scoreboard} out of ${list.length}`
+        text.innerHTML = `Congratulations, your score is ${scoreboard} out of ${P6Questions.length}`
         $("footer").before(text)
         }
     }
 
 function isWrong() {
     $(".wrong-sentence").css("visibility", "visible")
-    $(".video").attr("src", list[currentNumber].youtube_id)
+    $(".video").attr("src", P6Questions[currentNumber].youtube_id)
     $(".video").css("display", "block")
 }
 
 function questionUpdate() {
-    $(".question-fill").text(list[currentNumber].question)
+    $(".question-fill").text(P6Questions[currentNumber].question)
 }
 
