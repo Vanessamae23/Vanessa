@@ -1,0 +1,27 @@
+
+<% layout('layouts/boilerplate') %> 
+
+<link rel="stylesheet" href="../stylesheets/challenge.css">
+
+<%# javascript file %> 
+<% 
+let currentNumber = 0; %>
+
+
+
+
+<div class="bodyhead p-3" >
+    <h2 class="question-number">PSLE Challenge</h2>
+    <h5>Instruction: Try to answer the following questions</h5>
+    <hr>  
+    <p class="question-fill"><%= P6Questions[currentNumber].question %></p>
+    <form class="question-number">
+        <input type="text" name="question-number" id="question-number" placeholder="Answer here">
+        <input type="submit" value="Submit Answer" id="submit-button" onclick="submit()">
+    </form>
+    <p class="wrong-sentence">Incorrect! Watch the video below for hints or solutions and try again</p>
+    <iframe class="video" width="512" height="315" src="https://www.youtube.com/embed/voH_c33go2I" allowfullscreen></iframe>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/javascripts/primary-challenges.js" charset="utf-8"></script>
