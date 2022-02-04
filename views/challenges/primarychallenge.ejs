@@ -3,10 +3,11 @@
 
 <link rel="stylesheet" href="../stylesheets/challenge.css">
 
-<% let currentNumber = 0; %>
+
+<% let currentNumber = 0; %> 
 
 <div class="bodyhead p-3" >
-    <h2 class="question-number">PSLE Challenge</h2>
+    <h2 class="question-number">PSLE Challenge - Maths</h2>
     <h5>Instruction: Try to answer the following questions</h5>
     <hr>  
     <div class="container col-12">
@@ -18,13 +19,21 @@
             <button  id="submit-button" onclick="submit()">Submit Answer</button>
         </div>
     </div>
-    <p class="wrong-sentence">Incorrect! Watch the video below for hints or solutions and try again</p>
-    <iframe class="video" width="512" height="315" src="https://www.youtube.com/embed/voH_c33go2I" allowfullscreen></iframe>
-
+    <p class="wrong-sentence">Incorrect! Watch the video below for hints or solutions and try again.</p>
+    <p class="correct-answer"></p>
+    <iframe class="video" width="512" height="315" src="" allowfullscreen></iframe>
+    <% if( currentUser && currentUser.username === admin) { %>
+        <h3>Hi admin, New Question</h3>
+        <form action="/challenges/primary" method="POST" novalidate class="validated-form">
+            <textarea class="form-control my-2" required type="text" name="P6Questions[question]" id="" placeholder="question"></textarea>
+            <input class="form-control my-2" required type="text" name="P6Questions[answer]" id="" placeholder="answer">
+            <input class="form-control my-2" required type="text" name="P6Questions[youtube_id]" id="" placeholder="video">
+            <button class="btn btn-primary">Add question</button>
+        </form>
+    <% } %> 
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- <script src="/javascripts/primary-challenges.js" charset="utf-8"></script> -->
 <script>
     const P6Questions = JSON.parse('<%- JSON.stringify(P6Questions) %>');
 </script>

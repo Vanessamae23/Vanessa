@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container col-12">
+    <h2 class="mt-3 mb-2">New Forum</h2>
+    <form action="/forum" method="POST" novalidate class="validated-form">
+        <div>
+            <label class="form-label" for="title">Forum title</label>
+            <input class="form-control" type="text" name="forum[title]" id="title" required>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+        </div>
+        <div>
+            <label class="form-label" for="body">Body Content</label>
+            <textarea style="height: 5rem" class="form-control" type="text" id="body" name="forum[body]" placeholder="What do you want to ask?" required></textarea>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+        </div>
+        <div>
+            <label class="form-label" for="grade">Grade / Level (Primary / Secondary / JC)</label>
+            <input class="form-control" type="text" id="body" name="forum[grade]" required>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+        </div>
+        <button class="btn btn-success m-3">Add forum</button>
+    </form>
+</div>
+
+
+

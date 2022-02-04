@@ -28,6 +28,7 @@ function isCorrect() {
         questionUpdate();
         $(".video").css("display", "none")
         $(".wrong-sentence").css("visibility", "hidden")
+        $(".correct-answer").css("visibility", "hidden")
     } else {
         $(".bodyhead").css("display", "none")
         var text = document.createElement("p")
@@ -41,6 +42,8 @@ function isWrong() {
     $(".wrong-sentence").css("visibility", "visible")
     $(".video").attr("src", P6Questions[currentNumber].youtube_id)
     $(".video").css("display", "block")
+    $(".correct-answer").css("visibility", "visible")
+    $(".correct-answer").text(`The correct answer is ${P6Questions[currentNumber].answer} and ${P6Questions[currentNumber].youtube_id}`)
 }
 
 function questionUpdate() {

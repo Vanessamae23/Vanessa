@@ -2,14 +2,6 @@ html {
     width: 100%;
 }
 
-/* navigationbar styles */
-
-.navigationbar li {
-    list-style-type: none;
-    float: right;
-    height: 100%;
-}
-
 nav { 
     display: flex;
     background-color: #333;
@@ -18,10 +10,9 @@ nav {
 }
 
 
-.navigationbar {
+.navbar {
     margin: 0;
     padding: 10px;
-    overflow: hidden;
     align-items: center;
 }
 
@@ -33,22 +24,14 @@ nav {
     text-align: center;
 }
 
-.navigationbar a {
-    display: block;
+.navbar a:hover{
     color: white;
-    text-align: center;
-    padding: 14px 24px;
-    text-decoration: none;
-    position: relative;
 }
 
 .learnmorebtn {
     padding: 0.5rem;
 }
 
-.navigationbar a:hover{
-    background-color: black;
-}
 
 body {
     margin: 0;
@@ -68,10 +51,13 @@ body {
 
 }
 
-
+.dropdown-item:hover {
+    background-color: #343a40!important
+}
 
 .video {
     display: block;
+    width: 80%;
     align-self: center;
     justify-self: center;
 }
@@ -93,9 +79,7 @@ body {
         font-size: 1.2rem;
     }
 
-    .navigationbar li {
-        width: 100%;
-    }
+    
 
     nav {
         display: block;
