@@ -9,6 +9,7 @@ const path = require('path');
 const mongoose = require('mongoose')
 const methodOverride = require("method-override")
 const P6Question = require('./models/psle-qns.js');
+const JCQuestion = require('./models/jc-qns.js');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const Forum = require("./models/forum.js");
@@ -100,6 +101,12 @@ app.get('/challenges/primary', async (req, res) => {
     res.render('challenges/primarychallenge', { P6Questions, admin })
 })
 
+app.get('/challenges/jc', async (req, res) => {
+    const JCQuestions = await JCQuestion.find({})
+    const admin = process.env.ADMIN;
+    res.render('challenges/JCchallenge', { JCQuestions, admin })
+})
+
 app.get('/login', (req, res) => {
     
     res.render('users/login')
@@ -157,6 +164,15 @@ app.post('/challenges/primary', async (req, res, next) => {
     console.log(P6Questions)
     req.flash('success', 'successfully made a new question')
     res.redirect(`/challenges/primary`)
+    
+})
+
+app.post('/challenges/jc', async (req, res, next) => {
+    const JCQuestions = new JCQuestion(req.body.JCQuestions);
+    await JCQuestions.save();
+    console.log(JCQuestions)
+    req.flash('success', 'successfully made a new question')
+    res.redirect(`/challenges/jc`)
     
 })
 
